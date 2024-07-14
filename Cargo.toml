@@ -1,0 +1,21 @@
+[package]
+name = "blog_os"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+
+[dependencies]
+spin = "0.5.2"
+volatile = "0.2.6"
+
+[dependencies.lazy_static]
+version = "1.0"
+features = ["spin_no_std"]
+
+[lib]
+crate-type = ["staticlib"]
