@@ -1,5 +1,3 @@
-use volatile::Volatile;
-
 pub const BUFFER_HEIGHT: usize = 25;
 pub const BUFFER_WIDTH: usize = 80;
 
@@ -49,7 +47,7 @@ pub struct ScreenChar {
 /// Each element is a 2-byte representation of one screen character (1 byte for data, 1 byte for color)
 #[repr(transparent)]
 pub struct Buffer {
-    chars: [[Volatile<ScreenChar>; BUFFER_WIDTH]; BUFFER_HEIGHT],
+    chars: [[ScreenChar; BUFFER_WIDTH]; BUFFER_HEIGHT],
 }
 
 /// Keep track of the current state of the VGA buffer.
